@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const lowerCase = "abcdefghijklmnopqrstuvwxyz"
 const number = "0123456789"
-const symbol = "`!@#$%^&*()_+=-[];,./<>?"
+const symbol = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 
 // Write password to the #password input
 function writePassword() {
