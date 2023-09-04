@@ -1,13 +1,40 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const lowerCase = "abcdefghijklmnopqrstuvwxyz"
+let passwordChar = ""
+
+const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const lowercase = "abcdefghijklmnopqrstuvwxyz"
 const number = "0123456789"
 const symbol = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
-function generatePassword(){
 
-}
+
+function passwordPrompts(){
+  let lengthPrompt = window.prompt("How long would you like your password to be?");
+  let lowercasePrompt = window.confirm("Would you like to use lowercase characters?");
+  let uppercasePrompt = window.confirm("Would you like to use uppercase characters?");
+  let numberPrompt = window.confirm("Would you like to use numerical characters?");
+  let specialPrompt = window.confirm("Would you like to use special characters?");
+
+  passwordLength = parseInt(lengthPrompt);
+
+  if (passwordLength === NaN || passwordLength < 8 || passwordLength > 128){
+    alert('Password length must be a number between 8 - 128. Please try again.');
+    return false;
+  } else if (lowercasePrompt) {
+    passwordChar += lowercase;
+  } else if (uppercasePrompt) {
+    passwordChar += uppercase;
+  } else if (numberPrompt) {
+    passwordChar += number;
+  } else if (specialPrompt) {
+    passwordChar += symbol;
+  }
+};
+
+function generatePassword(){
+  
+};
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -22,12 +49,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword());
-generateBtn.onclick = function (){
-  window.confirm("Would you like to use uppercase characters?");
-  window.confirm("Would you like to use lowercase characters?");
-  window.confirm("Would you like to use numerical characters?");
-  window.confirm("Would you like to use special characters?");
-  window.prompt("How long would you like your password to be")
-}
+
 
 
