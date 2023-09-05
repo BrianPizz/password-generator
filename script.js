@@ -11,17 +11,22 @@ const symbol = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 
 function passwordPrompts(){
   let lengthPrompt = window.prompt("How long would you like your password to be?");
+  
+  passwordLength = parseInt(lengthPrompt);
+
+  if (passwordLength === NaN || passwordLength < 8 || passwordLength > 128){
+    alert('Password length must be a number between 8 - 128. Please try again.');
+    return false;};
+
   let lowercasePrompt = window.confirm("Would you like to use lowercase characters?");
   let uppercasePrompt = window.confirm("Would you like to use uppercase characters?");
   let numberPrompt = window.confirm("Would you like to use numerical characters?");
   let specialPrompt = window.confirm("Would you like to use special characters?");
 
-  passwordLength = parseInt(lengthPrompt);
+  
 
-  if (passwordLength === NaN || passwordLength < 8 || passwordLength > 128){
-    alert('Password length must be a number between 8 - 128. Please try again.');
-    return false;
-  } else if (lowercasePrompt) {
+  
+  if (lowercasePrompt) {
     passwordChar += lowercase;
   } else if (uppercasePrompt) {
     passwordChar += uppercase;
@@ -39,7 +44,7 @@ function generatePassword(){
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  passwordPrompts();
   
   
   passwordText.value = password;
@@ -48,7 +53,7 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
 
 
 
