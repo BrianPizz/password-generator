@@ -8,6 +8,8 @@ const lowercase = "abcdefghijklmnopqrstuvwxyz"
 const number = "0123456789"
 const symbol = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 
+var passwordLength;
+
 
 function passwordPrompts(){
   let lengthPrompt = window.prompt("How long would you like your password to be?");
@@ -41,13 +43,19 @@ function passwordPrompts(){
 
 }
 function generatePassword(){
+  let password = "";
+  while(password.length < passwordLength){
+    password += passwordChar[Math.floor(Math.random() * passwordChar.length)];
+  } 
   
+  return password;
 };
 // Write password to the #password input
 function writePassword() {
+  passwordPrompts();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  passwordPrompts();
+  
   
   
   passwordText.value = password;
