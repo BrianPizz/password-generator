@@ -41,7 +41,7 @@ function passwordPrompts(){
   if (specialPrompt) {
     passwordChar += symbol;
   }
-  else{
+  if(!lowercasePrompt && !uppercasePrompt && !numberPrompt && !specialPrompt){
     alert('Password must include at least one character type. Please try again.')
   };
 };
