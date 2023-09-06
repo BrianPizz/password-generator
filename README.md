@@ -6,3 +6,9 @@
 ## Deployment Link
 
 https://brianpizz.github.io/password-generator/
+
+## Description
+* Used to generate a random password consisting of lowercase, uppercase, numerical, and/or special characters
+* Passwords can be between 8 and 128 characters long
+* User can generate as many passwords as they like
+* Passwords reset after ever generation
