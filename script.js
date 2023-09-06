@@ -19,24 +19,27 @@ function passwordPrompts(){
     return false;};
 
   let lowercasePrompt = window.confirm("Would you like to use lowercase characters?");
-  let uppercasePrompt = window.confirm("Would you like to use uppercase characters?");
-  let numberPrompt = window.confirm("Would you like to use numerical characters?");
-  let specialPrompt = window.confirm("Would you like to use special characters?");
-
-  
-
   
   if (lowercasePrompt) {
     passwordChar += lowercase;
-  } else if (uppercasePrompt) {
-    passwordChar += uppercase;
-  } else if (numberPrompt) {
-    passwordChar += number;
-  } else if (specialPrompt) {
-    passwordChar += symbol;
-  }
-};
+  };
+  let uppercasePrompt = window.confirm("Would you like to use uppercase characters?");
 
+  if (uppercasePrompt) {
+    passwordChar += uppercase;
+  };
+  let numberPrompt = window.confirm("Would you like to use numerical characters?");
+
+  if (numberPrompt) {
+    passwordChar += number;
+  };
+  let specialPrompt = window.confirm("Would you like to use special characters?");
+
+  if (specialPrompt) {
+    passwordChar += symbol;
+  };
+
+}
 function generatePassword(){
   
 };
@@ -54,6 +57,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
